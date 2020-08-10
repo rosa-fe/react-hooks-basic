@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.scss";
 import ToDo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
+import PostList from "./components/PostList";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -31,10 +32,11 @@ function App() {
   };
   return (
     <div className="app">
-      <h2>React hooks - todo list</h2>
-      <TodoForm onSubmit={onSubmit} />
+      <h2>React hooks - Post list</h2>
+      <PostList />
+      {/* <TodoForm onSubmit={onSubmit} /> */}
       {/* <ColorBox /> */}
-      <ToDo todos={todoList} onTodoClick={clickTodo} />
+      {/* <ToDo todos={todoList} onTodoClick={clickTodo} /> */}
     </div>
   );
 }
