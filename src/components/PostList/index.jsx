@@ -12,13 +12,14 @@ PostList.propTypes = {};
 function PostList(props) {
   let [postList, setPostList] = useState([]);
   let [pagination, setPagination] = useState({
-    _page: 1,
+    _page: 0,
     _limit: 10,
-    _totalRows: 1,
+    _totalRows: 0,
   });
   const [filter, setFilter] = useState({
     _limit: 10,
     _page: 1,
+    title_like: "",
   });
   useEffect(() => {
     let FetchData = async () => {
@@ -40,10 +41,17 @@ function PostList(props) {
   let handleChangePage = (_page) => {
     setFilter({ ...filter, _page });
   };
+  let handleFiltersChange = (params) => {
+    setFilter({
+      ...filter,
+      page: 1,
+      title_like: params,
+    });
+  };
 
   return (
     <React.Fragment>
-      <Form />
+      <Form onSubmit={handleFiltersChange} />
       <List data={postList} />;
       <Pagination onChangePage={handleChangePage} pagination={pagination} />
     </React.Fragment>

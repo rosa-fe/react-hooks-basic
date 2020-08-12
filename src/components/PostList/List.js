@@ -11,6 +11,7 @@ List.defaultProps = {
 
 function List(props) {
   let { data } = props;
+  console.log("data", data);
 
   return (
     <ul className="post-list">

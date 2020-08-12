@@ -20,7 +20,7 @@ function Pagination(props) {
         Pre
       </button>
       <button
-        disabled={_page > totalPage}
+        disabled={_page >= totalPage}
         onClick={() => hangleChangePage(_page + 1)}
       >
         Next
