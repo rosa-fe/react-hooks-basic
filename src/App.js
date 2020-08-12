@@ -3,6 +3,7 @@ import "./App.scss";
 import ToDo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 import PostList from "./components/PostList";
+import Clock from "./components/Clock";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -10,6 +11,7 @@ function App() {
     { id: 2, title: "FE" },
     { id: 3, title: "React" },
   ]);
+  const [showClock, setshowClock] = useState(true);
 
   function clickTodo(todo) {
     let index = todoList.findIndex((item) => item.id === todo.id);
@@ -32,11 +34,15 @@ function App() {
   };
   return (
     <div className="app">
-      <h2>React hooks - Post list</h2>
-      <PostList />
+      {/* <h2>React hooks - Post list</h2>
+      <PostList /> */}
       {/* <TodoForm onSubmit={onSubmit} /> */}
       {/* <ColorBox /> */}
       {/* <ToDo todos={todoList} onTodoClick={clickTodo} /> */}
+
+      <h1>React hooks clock</h1>
+      {showClock && <Clock />}
+      <button onClick={() => setshowClock(false)}>Hide Clock</button>
     </div>
   );
 }
