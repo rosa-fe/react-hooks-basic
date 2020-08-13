@@ -1,0 +1,8 @@
+@mixin Box($width, $height) {
+    width: $width;
+    height: $height;
+}
+.magic-box {
+    @include Box(100px, 100px);
+    margin: 0 auto;
+}

@@ -4,6 +4,9 @@ import ToDo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 import PostList from "./components/PostList";
 import Clock from "./components/Clock";
+import CustomClock from "./components/hooks";
+import BetterClock from "./components/BetterClock";
+import MagicColor from "./components/MagicColor";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -41,8 +44,13 @@ function App() {
       {/* <ToDo todos={todoList} onTodoClick={clickTodo} /> */}
 
       <h1>React hooks clock</h1>
-      {showClock && <Clock />}
-      <button onClick={() => setshowClock(false)}>Hide Clock</button>
+      {/* {showClock && <Clock />}
+      <button onClick={() => setshowClock(false)}>Hide Clock</button> */}
+      <CustomClock />
+      <BetterClock />
+
+      <h1>Magic color</h1>
+      <MagicColor />
     </div>
   );
 }
