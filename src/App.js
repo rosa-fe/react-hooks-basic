@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./App.scss";
 import ToDo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
@@ -7,8 +7,10 @@ import Clock from "./components/Clock";
 import CustomClock from "./components/hooks";
 import BetterClock from "./components/BetterClock";
 import MagicColor from "./components/MagicColor";
+import Demo from "./components/reactMemo/Demo";
 
 function App() {
+  const [count, setCount] = useState(0);
   const [todoList, setTodoList] = useState([
     { id: 1, title: "Thao" },
     { id: 2, title: "FE" },
@@ -43,14 +45,29 @@ function App() {
       {/* <ColorBox /> */}
       {/* <ToDo todos={todoList} onTodoClick={clickTodo} /> */}
 
-      <h1>React hooks clock</h1>
+      {/* <h1>React hooks clock</h1> */}
       {/* {showClock && <Clock />}
       <button onClick={() => setshowClock(false)}>Hide Clock</button> */}
-      <CustomClock />
+      {/* <CustomClock />
       <BetterClock />
 
       <h1>Magic color</h1>
-      <MagicColor />
+      <MagicColor /> */}
+
+      <div>React memo</div>
+      <button onClick={() => setCount(count + 1)}>{count}</button>
+      <Demo
+        name={count}
+        onClick={
+          // useCallback(
+          () => {
+            console.log("aaa");
+          }
+          // , [])
+
+          // return {};
+        }
+      />
     </div>
   );
 }
